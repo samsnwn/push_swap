@@ -5,5 +5,6 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <stdbool.h>
+#include "../libft/include/libft.h"
 
 #endif

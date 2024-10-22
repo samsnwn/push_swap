@@ -13,7 +13,10 @@ HEAD = push_swap.h
 SRCS = $(SRCS_DIR)/main.c $(SRCS_DIR)/push_swap.c
 OBJS = $(SRCS:$(SRCS_DIR)/%.c=$(OBJS_DIR)/%.o)
 
-all: $(NAME)
+all: $(LIBFT) $(NAME)
+
+$(LIBFT):
+	make -C libft
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 	@mkdir -p $(@D)
@@ -24,9 +27,11 @@ $(NAME): $(OBJS)
 	
 clean:
 	$(RM) -r $(OBJS_DIR)
+	make -C libft clean
  
 fclean: clean
 	$(RM) $(NAME)
+	make -C libft fclean
 
 re: fclean all
 
