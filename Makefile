@@ -7,6 +7,8 @@ SRCS_DIR = src
 OBJS_DIR = obj
 INCS_DIR = include
 
+LIBFT = libft/libft.a
+
 HEAD = push_swap.h
 SRCS = $(SRCS_DIR)/main.c $(SRCS_DIR)/push_swap.c
 OBJS = $(SRCS:$(SRCS_DIR)/%.c=$(OBJS_DIR)/%.o)
