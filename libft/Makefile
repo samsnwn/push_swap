@@ -8,7 +8,6 @@ SRCS_DIR = src
 OBJS_DIR = obj
 INCS_DIR = include
 PRINTF_DIR = src/ft_printf
-GNL_DIR = src/get_next_line
 
 SRCS = $(SRCS_DIR)/ft_strncmp.c $(SRCS_DIR)/ft_isascii.c $(SRCS_DIR)/ft_isalnum.c $(SRCS_DIR)/ft_isalpha.c $(SRCS_DIR)/ft_isdigit.c\
 	$(SRCS_DIR)/ft_isprint.c $(SRCS_DIR)/ft_atoi.c $(SRCS_DIR)/ft_bzero.c $(SRCS_DIR)/ft_calloc.c $(SRCS_DIR)/ft_memchr.c\
@@ -20,7 +19,6 @@ SRCS = $(SRCS_DIR)/ft_strncmp.c $(SRCS_DIR)/ft_isascii.c $(SRCS_DIR)/ft_isalnum.
 	$(SRCS_DIR)/ft_lstadd_back.c $(SRCS_DIR)/ft_lstadd_front.c $(SRCS_DIR)/ft_lstlast.c $(SRCS_DIR)/ft_lstnew.c\
 	$(SRCS_DIR)/ft_lstsize.c $(SRCS_DIR)/ft_lstclear.c $(SRCS_DIR)/ft_lstmap.c $(SRCS_DIR)/ft_lstiter.c $(SRCS_DIR)/ft_lstdelone.c\
 	$(PRINTF_DIR)/ft_printf.c $(PRINTF_DIR)/write_numbers.c $(PRINTF_DIR)/write_letters.c $(PRINTF_DIR)/write_ptr.c\
-	$(GNL_DIR)/get_next_line.c $(GNL_DIR)/get_next_line_utils.c\
 
 OBJS = $(SRCS:$(SRCS_DIR)/%.c=$(OBJS_DIR)/%.o)
 
@@ -34,10 +32,6 @@ $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 	$(CC) $(CFLAGS) -I$(INCS_DIR) -c $< -o $@
 
 $(OBJS_DIR)/ft_printf/%.o: $(PRINTF_DIR)/%.c
-	@mkdir -p $(@D)
-	$(CC) $(CFLAGS) -I$(INCS_DIR) -c $< -o $@
-
-$(OBJS_DIR)/get_next_line/%.o: $(GNL_DIR)/%.c
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -I$(INCS_DIR) -c $< -o $@
 

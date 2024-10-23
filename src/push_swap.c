@@ -43,37 +43,35 @@ void	create_list(t_node **head, int *arr, size_t arr_len)
 	}
 }
 
-void initialize_stack(t_node *head, t_stack *a)
+void	initialize_stack(t_node *head, t_stack *a)
 {
-  t_node *current = head;
+	t_node	*current;
 
-  a->top = head;
-  while (current && current->next)
-    current = current->next;
-  a->bottom = current;
+	current = head;
+	a->top = head;
+	while (current && current->next)
+		current = current->next;
+	a->bottom = current;
 }
 
 void	push_swap(int *arr, size_t arr_len)
 {
 	t_node *head = NULL;
-  t_stack *a;
-  // t_stack *b;
+	t_stack *a;
+	// t_stack *b;
 
-	printf("Elements from int array:\n");
-	size_t i = -1;
-	while (++i < arr_len)
-	  ft_printf("%d: arr[%d] = %d\n", i, i, arr[i]);
 	create_list(&head, arr, arr_len);
-	printf("Elements from linked list:\n");
+	ft_printf("Elements from linked list:\n");
 	t_node *current = head;
-	while (current != NULL) {
-	    printf("t_node->data: %d\n", current->data); // Print the data
-	    current = current->next; // Move to the next node
+	while (current != NULL)
+	{
+		ft_printf("t_node->data: %d\n", current->data);
+		current = current->next;
 	}
-  a = (t_stack *)malloc(sizeof(t_stack));
-  if (!a)
-		return;
-  initialize_stack(head, a);
+	a = (t_stack *)malloc(sizeof(t_stack));
+	if (!a)
+		return ;
+	initialize_stack(head, a);
 	ft_printf("Elements from stack A:\n");
 	ft_printf("a->top: %d\na->bottom: %d\n", a->top->data, a->bottom->data);
 }

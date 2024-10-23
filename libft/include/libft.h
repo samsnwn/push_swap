@@ -69,6 +69,5 @@ int					ft_tolower(int c);
 extern void			del(void *content);
 
 int					ft_printf(const char *format, ...);
-char				*get_next_line(int fd);
 
 #endif

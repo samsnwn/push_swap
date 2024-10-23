@@ -14,7 +14,7 @@
 
 int	*create_int_arr(char **str_arr, size_t arr_len)
 {
-	int	*int_arr;
+	int		*int_arr;
 	size_t	i;
 
 	int_arr = malloc(arr_len * sizeof(int));
@@ -25,10 +25,10 @@ int	*create_int_arr(char **str_arr, size_t arr_len)
 	{
 		int_arr[i] = str_atoi(str_arr[i]);
 		if (int_arr[i] == 0 && str_arr[i][0] != '0')
-    {
-      free(int_arr);
+		{
+			free(int_arr);
 			return (0);
-    }
+		}
 	}
 	return (int_arr);
 }
@@ -37,11 +37,11 @@ int	main(int argc, char **argv)
 {
 	char	**str_arr;
 	int		*int_arr;
-	size_t		arr_len;
+	size_t	arr_len;
 
 	arr_len = 0;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return error_handler("Incorrect Number of arguments");
+		return (error_handler("Incorrect Number of arguments"));
 	if (argc == 2 && argv[1][0])
 	{
 		str_arr = ft_split(argv[1], ' ');
@@ -54,21 +54,20 @@ int	main(int argc, char **argv)
 		arr_len = argc - 1;
 		int_arr = create_int_arr(argv + 1, arr_len);
 	}
-  if (!int_arr)
-		return error_handler("Invalid argument format");
-  if (array_checks(int_arr, arr_len) == 1)
-  {
-    free(int_arr);
-		return error_handler("Numbers must be unique");
-  }
-  push_swap(int_arr, arr_len);
+	if (!int_arr)
+		return (error_handler("Invalid argument format"));
+	if (array_checks(int_arr, arr_len) == 1)
+	{
+		free(int_arr);
+		return (error_handler("Numbers must be unique"));
+	}
+	push_swap(int_arr, arr_len);
 	// size_t		i = 0;
 	// while (i < arr_len)
 	// {
 	// 	ft_printf("%d\n", int_arr[i]);
 	// 	i++;
 	// }
-
-  free(int_arr);
+	free(int_arr);
 	return (EXIT_SUCCESS);
 }
