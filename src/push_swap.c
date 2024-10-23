@@ -73,5 +73,9 @@ void	push_swap(int *arr, size_t arr_len)
 		return ;
 	initialize_stack(head, a);
 	ft_printf("Elements from stack A:\n");
-	ft_printf("a->top: %d\na->bottom: %d\n", a->top->data, a->bottom->data);
+	ft_printf("a->top: %d\na->top->next: %d\n", a->top->data, a->top->next->data);
+
+	ft_printf("Swaped elements:\n");
+  sa(a);
+	ft_printf("new a->top: %d\nnew a->top->next: %d\n", a->top->data, a->top->next->data);
 }

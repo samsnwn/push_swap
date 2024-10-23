@@ -11,7 +11,9 @@ LIBFT = libft/libft.a
 
 HEAD = push_swap.h
 SRCS = $(SRCS_DIR)/main.c $(SRCS_DIR)/push_swap.c $(SRCS_DIR)/utils.c $(SRCS_DIR)/checks.c $(SRCS_DIR)/errors.c\
-	$(SRCS_DIR)/swap.c $(SRCS_DIR)/push.c $(SRCS_DIR)/rotate.c $(SRCS_DIR)/reverse_rotate.c
+	$(SRCS_DIR)/swap.c
+
+# $(SRCS_DIR)/push.c $(SRCS_DIR)/rotate.c $(SRCS_DIR)/reverse_rotate.c
 
 OBJS = $(SRCS:$(SRCS_DIR)/%.c=$(OBJS_DIR)/%.o)
 
