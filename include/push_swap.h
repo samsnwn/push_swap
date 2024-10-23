@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <stdbool.h>
+# include <limits.h>
 # include "../libft/include/libft.h"
 
 typedef struct s_node
@@ -32,10 +33,10 @@ typedef struct s_stack
     struct  s_node *bottom;
 }                   t_stack;
 
-void push_swap(int *arr);
+void push_swap(int *arr, size_t arr_len);
 size_t arr_length(char **arr);
 void    free_array(char **arr);
-int array_checks(int *arr, int arr_len);
+int array_checks(int *arr, size_t arr_len);
 int	str_atoi(char *str);
 
 int error_handler(char *err_str);

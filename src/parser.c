@@ -12,10 +12,10 @@
 
 #include "../include/push_swap.h"
 
-int	*create_int_arr(char **str_arr, int arr_len)
+int	*create_int_arr(char **str_arr, size_t arr_len)
 {
 	int	*int_arr;
-	int	i;
+	size_t	i;
 
 	int_arr = malloc(arr_len * sizeof(int));
 	if (!int_arr)
@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 {
 	char	**str_arr;
 	int		*int_arr;
-	int		arr_len;
+	size_t		arr_len;
 
 	arr_len = 0;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
@@ -61,12 +61,13 @@ int	main(int argc, char **argv)
     free(int_arr);
 		return error_handler("Numbers must be unique");
   }
-	int		i = 0;
-	while (i < arr_len)
-	{
-		ft_printf("%d\n", int_arr[i]);
-		i++;
-	}
+  push_swap(int_arr, arr_len);
+	// size_t		i = 0;
+	// while (i < arr_len)
+	// {
+	// 	ft_printf("%d\n", int_arr[i]);
+	// 	i++;
+	// }
 
   free(int_arr);
 	return (EXIT_SUCCESS);
