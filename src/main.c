@@ -12,27 +12,6 @@
 
 #include "../include/push_swap.h"
 
-int	str_atoi(char *str)
-{
-	int	j;
-
-	if (ft_isdigit(str[0]) || (str[0] == '-' && ft_isdigit(str[1])))
-	{
-		if (str[0] == '-')
-			j = 1;
-		else
-			j = 0;
-		while (str[j])
-		{
-			if (!ft_isdigit(str[j]))
-				return (0);
-			j++;
-		}
-		return (ft_atoi(str));
-	}
-	return (0);
-}
-
 int	*create_int_arr(char **str_arr, int arr_len)
 {
 	int	*int_arr;
