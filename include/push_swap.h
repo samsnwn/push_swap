@@ -32,6 +32,11 @@ typedef struct s_stack
     struct  s_node *bottom;
 }                   t_stack;
 
+void push_swap(int *arr);
 size_t arr_length(char **arr);
+void    free_array(char **arr);
+int array_checks(int *arr, int arr_len);
+
+int error_handler(char *err_str);
 
 #endif

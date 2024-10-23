@@ -2,15 +2,25 @@
 
 size_t arr_length(char **arr)
 {
-    int i;
     size_t count;
 
-    i = 0;
     count = 0;
-    while (arr[i])
-    {
+    while (arr[count])
         count++;
+    return (count);
+}
+
+void    free_array(char **arr)
+{
+    int i;
+    int arr_len;
+
+    i = 0;
+    arr_len = arr_length(arr);
+    while (i < arr_len)
+    {
+        free(arr[i]);
         i++;
     }
-    return (count);
+    free(arr);
 }
