@@ -12,31 +12,12 @@
 
 #include "../include/push_swap.h"
 
-int	*create_int_arr(char **str_arr, size_t arr_len)
-{
-	int		*int_arr;
-	size_t	i;
-
-	int_arr = malloc(arr_len * sizeof(int));
-	if (!int_arr)
-		return (NULL);
-	i = -1;
-	while (++i < arr_len)
-	{
-		int_arr[i] = str_atoi(str_arr[i]);
-		if (int_arr[i] == 0 && str_arr[i][0] != '0')
-		{
-			free(int_arr);
-			return (0);
-		}
-	}
-	return (int_arr);
-}
-
 int	main(int argc, char **argv)
 {
-	char	**str_arr;
+	// t_stack *a = NULL;
+	// t_stack *b = NULL;
 	int		*int_arr;
+	char	**str_arr;
 	size_t	arr_len;
 
 	arr_len = 0;
@@ -56,6 +37,8 @@ int	main(int argc, char **argv)
 	}
 	if (!int_arr)
 		return (error_handler("Invalid argument format"));
+	// int_arr = parse_input(argc, argv);
+	// arr_len = int_arr_length(int_arr);
 	if (array_checks(int_arr, arr_len) == 1)
 	{
 		free(int_arr);

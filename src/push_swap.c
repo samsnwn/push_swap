@@ -16,9 +16,30 @@ void	create_list(t_node **head, int *arr, size_t arr_len)
 {
 	size_t	i;
 	t_node	*new_node;
-	t_node	*current;
 
-	current = NULL;
+	i = -1;
+	if (!arr || arr_len == 0)
+    return;
+	while (++i < arr_len)
+	{
+		new_node = (t_node *)malloc(sizeof(t_node));
+		if (!new_node)
+			return ;
+		new_node->data = arr[i];
+		new_node->next = NULL;
+		new_node->prev = NULL;
+		lstadd_back(head, new_node);
+	}
+}
+
+void	create_list_b(t_node **head)
+{
+	size_t	i;
+	t_node	*new_node;
+
+	int arr[3] = {5, 8, 9};
+	size_t arr_len = 3; 
+
 	i = -1;
 	while (++i < arr_len)
 	{
@@ -27,19 +48,7 @@ void	create_list(t_node **head, int *arr, size_t arr_len)
 			return ;
 		new_node->data = arr[i];
 		new_node->next = NULL;
-		if (*head == NULL)
-		{
-			*head = new_node;
-			new_node->prev = NULL;
-		}
-		else
-		{
-			current = *head;
-			while (current->next)
-				current = current->next;
-			current->next = new_node;
-			new_node->prev = current;
-		}
+		lstadd_back(head, new_node);
 	}
 }
 
@@ -47,6 +56,8 @@ void	initialize_stack(t_node *head, t_stack *a)
 {
 	t_node	*current;
 
+	if (!head || !a)
+		return ;
 	current = head;
 	a->top = head;
 	while (current && current->next)
@@ -55,27 +66,25 @@ void	initialize_stack(t_node *head, t_stack *a)
 }
 
 void	push_swap(int *arr, size_t arr_len)
-{
+{ 
 	t_node *head = NULL;
+	t_node *head_b = NULL;
 	t_stack *a;
-	// t_stack *b;
+	t_stack *b;
 
 	create_list(&head, arr, arr_len);
-	ft_printf("Elements from linked list:\n");
-	t_node *current = head;
-	while (current != NULL)
-	{
-		ft_printf("t_node->data: %d\n", current->data);
-		current = current->next;
-	}
+	create_list_b(&head_b);
 	a = (t_stack *)malloc(sizeof(t_stack));
-	if (!a)
+	b = (t_stack *)malloc(sizeof(t_stack));
+	if (!a || !b)
 		return ;
 	initialize_stack(head, a);
-	ft_printf("Elements from stack A:\n");
-	ft_printf("a->top: %d\na->top->next: %d\n", a->top->data, a->top->next->data);
+	initialize_stack(head_b, b);
+	test_stacks(a, b);
+	// free_list(&head);
+	// free_list(&head_b);
 
-	ft_printf("Swaped elements:\n");
-  sa(a);
-	ft_printf("new a->top: %d\nnew a->top->next: %d\n", a->top->data, a->top->next->data);
+
+
+	// ft_printf("new a->top: %d\nnew a->top->next: %d\n", a->top->data, a->top->next->data);
 }
