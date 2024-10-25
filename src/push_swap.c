@@ -37,8 +37,11 @@ void	create_list_b(t_node **head)
 	size_t	i;
 	t_node	*new_node;
 
-	int arr[3] = {5, 8, 9};
-	size_t arr_len = 3; 
+	int arr[5] = {5, 8, 9, 3, 1};
+	size_t arr_len = 5; 
+
+	// int *arr = {0};
+	// size_t arr_len = 0;
 
 	i = -1;
 	while (++i < arr_len)
