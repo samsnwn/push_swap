@@ -6,23 +6,21 @@ void	ra(t_stack *a)
 
 	if (!a || !a->top || !a->top->next)
 		return ;
-	temp = a->top; // copy first node into temp
-	a->top = a->top->next; // Assign second node to top
-	a->top->prev = NULL;   // make new tops prev NULL
-	// If the stack was empty, set bottom to temp
+	temp = a->top;
+	a->top = a->top->next;
+	a->top->prev = NULL;
 	if (a->bottom == NULL)
 	{
 		a->bottom = temp;
-		temp->next = NULL; // Set next of temp to NULL
-		temp->prev = NULL; // Set prev of temp to NULL
+		temp->next = NULL;
+		temp->prev = NULL;
 	}
 	else
 	{
-		// Link temp to the current bottom
 		temp->prev = a->bottom;
-		temp->next = NULL;      // Set next of temp to NULL
-		a->bottom->next = temp; // Link the current bottom to temp
-		a->bottom = temp;       // Update bottom to temp
+		temp->next = NULL;
+		a->bottom->next = temp;
+		a->bottom = temp;
 	}
 }
 
@@ -32,23 +30,22 @@ void	rb(t_stack *b)
 
 	if (!b || !b->top || !b->top->next)
 		return ;
-	temp = b->top; // copy first node into temp
-	b->top = b->top->next; // Assign second node to top
-	b->top->prev = NULL;   // make new tops prev NULL
-	// If the stack was empty, set bottom to temp
+	temp = b->top;
+	b->top = b->top->next;
+	b->top->prev = NULL;
+
 	if (b->bottom == NULL)
 	{
 		b->bottom = temp;
-		temp->next = NULL; // Set next of temp to NULL
-		temp->prev = NULL; // Set prev of temp to NULL
+		temp->next = NULL;
+		temp->prev = NULL;
 	}
 	else
 	{
-		// Link temp to the current bottom
 		temp->prev = b->bottom;
-		temp->next = NULL;      // Set next of temp to NULL
-		b->bottom->next = temp; // Link the current bottom to temp
-		b->bottom = temp;       // Update bottom to temp
+		temp->next = NULL;
+		b->bottom->next = temp;
+		b->bottom = temp;
 	}
 }
 
