@@ -71,12 +71,12 @@ void test_stacks(t_stack *a, t_stack *b)
 // 	print_stack(a);
 // ft_printf("\n");
 
-// ROTATE B
-  ft_printf("Rotate top of B to the bottom:\n");
-	rb(b);
-	ft_printf("STACK B:\n");
-	print_stack(b);
-ft_printf("\n");
+// // ROTATE B
+//   ft_printf("Rotate top of B to the bottom:\n");
+// 	rb(b);
+// 	ft_printf("STACK B:\n");
+// 	print_stack(b);
+// ft_printf("\n");
 
 // // ROTATE BOTH
 //   ft_printf("Rotate BOTH:\n");
@@ -109,4 +109,10 @@ ft_printf("\n");
 // 	ft_printf("STACK B:\n");
 // 	print_stack(b);
 // 	ft_printf("\n");
+
+// // SORT 
+	  ft_printf("SORT:\n");
+		ft_sort(a);
+		print_stack(a);
+		// free_list(&a->top);
 }

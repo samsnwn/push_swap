@@ -21,6 +21,9 @@
 typedef struct s_node
 {
 	int				data;
+	int				index;
+	struct s_node	*target;
+	 
 	struct s_node	*next;
 	struct s_node	*prev;
 }					t_node;
@@ -34,6 +37,8 @@ typedef struct s_stack
 
 // MAIN FUNCTIONS
 void				push_swap(int *arr, size_t arr_len);
+void 				ft_sort(t_stack *a);
+int 				is_sorted(t_stack *stack);
 
 // ARRAY UTILS
 void					free_array(char **arr);
@@ -65,6 +70,7 @@ void				rrr(t_stack *a, t_stack *b);
 // LIST UTILS
 void 				lstadd_back(t_node **head, t_node *new);
 void 				free_list(t_node **head);
+size_t 			stack_size(t_stack *stack);
 
 void test_stacks(t_stack *a, t_stack *b);
 

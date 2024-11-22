@@ -38,3 +38,32 @@ void free_list(t_node **head)
   *head = NULL;
 }
 
+size_t stack_size(t_stack *stack)
+{
+  t_node *current;
+  size_t count;
+
+  count = 1;
+  current = stack->top;
+  while (current->next)
+  {
+    count++;
+   current = current->next; 
+  }
+  return count;
+}
+
+int	is_sorted(t_stack *stack)
+{
+	t_node	*current;
+
+	current = stack->top;
+	while (current->next)
+	{
+		if (current->data > current->next->data)
+			return (0);
+		current = current->next;
+	}
+	return (1);
+}
+

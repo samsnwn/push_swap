@@ -10,10 +10,10 @@ void sa(t_stack *a)
   a->top = a->top->next;
   a->top->prev = NULL;
   temp->next = a->top->next;
-  a->top->next = temp;
-  temp->prev = a->top;
   if (temp->next)
     temp->next->prev = temp;
+  a->top->next = temp;
+  temp->prev = a->top;
 }
 
 void sb(t_stack *b)

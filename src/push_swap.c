@@ -19,7 +19,7 @@ void	create_list(t_node **head, int *arr, size_t arr_len)
 
 	i = -1;
 	if (!arr || arr_len == 0)
-    return;
+		return ;
 	while (++i < arr_len)
 	{
 		new_node = (t_node *)malloc(sizeof(t_node));
@@ -36,13 +36,12 @@ void	create_list_b(t_node **head)
 {
 	size_t	i;
 	t_node	*new_node;
+	int		arr[5] = {5, 8, 9, 3, 1};
+	size_t	arr_len;
 
-	int arr[5] = {5, 8, 9, 3, 1};
-	size_t arr_len = 5; 
-
+	arr_len = 5;
 	// int *arr = {0};
 	// size_t arr_len = 0;
-
 	i = -1;
 	while (++i < arr_len)
 	{
@@ -69,7 +68,7 @@ void	initialize_stack(t_node *head, t_stack *a)
 }
 
 void	push_swap(int *arr, size_t arr_len)
-{ 
+{
 	t_node *head = NULL;
 	t_node *head_b = NULL;
 	t_stack *a;
@@ -83,11 +82,9 @@ void	push_swap(int *arr, size_t arr_len)
 		return ;
 	initialize_stack(head, a);
 	initialize_stack(head_b, b);
+
 	test_stacks(a, b);
-	// free_list(&head);
-	// free_list(&head_b);
 
+	// ft_sort(a);
 
-
-	// ft_printf("new a->top: %d\nnew a->top->next: %d\n", a->top->data, a->top->next->data);
 }
