@@ -25,9 +25,6 @@ typedef struct s_stack_node
 // Parsing
 int						*parse_args(int argc, char **argv, int *size,
 							int *is_split);
-int						*handle_single_arg(char **argv, int *size, int *error);
-int						*handle_multiple_args(char **argv, int *size,
-							int *error);
 int						*convert_to_int_array(char **argv, int size,
 							int *error);
 int						check_duplicates(int *numbers, int size);

@@ -1,42 +1,55 @@
 #include "../include/push_swap.h"
 
-int	*parse_args(int argc, char **argv, int *size, int *is_split)
+static int	*handle_split_args(char **split_args, int *size, int *error)
 {
 	int	*numbers;
-	int	error;
 
-	error = 0;
-	*is_split = 0;
-	if (argc == 2)
-	{
-		*is_split = 1;
-		numbers = handle_single_arg(argv, size, &error);
-	}
-	else
-		numbers = handle_multiple_args(argv, size, &error);
-	if (error || !numbers || check_duplicates(numbers, *size))
-		handle_input_error(numbers, argv, *is_split);
-	return (numbers);
-}
-
-int	*handle_single_arg(char **argv, int *size, int *error)
-{
-	int		*numbers;
-	char	**split_args;
-
-	split_args = ft_split(argv[1], ' ');
 	if (!split_args)
 		return (NULL);
 	*size = count_numbers(split_args);
 	numbers = convert_to_int_array(split_args, *size, error);
+	if (*error || !numbers || check_duplicates(numbers, *size))
+	{
+		if (numbers)
+			free(numbers);
+		free_args(split_args);
+		write(2, "Error\n", 6);
+		exit(1);
+	}
 	free_args(split_args);
 	return (numbers);
 }
 
-int	*handle_multiple_args(char **argv, int *size, int *error)
+static int	*handle_direct_args(char **argv, int *size, int *error)
 {
+	int	*numbers;
+
 	*size = count_numbers(argv + 1);
-	return (convert_to_int_array(argv + 1, *size, error));
+	numbers = convert_to_int_array(argv + 1, *size, error);
+	if (*error || !numbers || check_duplicates(numbers, *size))
+	{
+		if (numbers)
+			free(numbers);
+		write(2, "Error\n", 6);
+		exit(1);
+	}
+	return (numbers);
+}
+
+int	*parse_args(int argc, char **argv, int *size, int *is_split)
+{
+	int		*numbers;
+	char	**split_args;
+
+	*is_split = 0;
+	if (argc == 2)
+	{
+		split_args = ft_split(argv[1], ' ');
+		numbers = handle_split_args(split_args, size, is_split);
+	}
+	else
+		numbers = handle_direct_args(argv, size, is_split);
+	return (numbers);
 }
 
 int	*convert_to_int_array(char **argv, int size, int *error)
