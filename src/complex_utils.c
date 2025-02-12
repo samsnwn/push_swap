@@ -29,7 +29,7 @@ void	update_positions(t_stack_node *stack)
 
 	i = 0;
 	if (stack == NULL)
-		return;
+		return ;
 	mid = stack_size(stack) / 2;
 	while (stack)
 	{
@@ -83,7 +83,7 @@ void	complete_rotation(t_stack_node **stack, t_stack_node *top,
 
 void	execute_move(t_stack_node **a, t_stack_node **b)
 {
-	t_stack_node	*node;
+	t_stack_node *node;
 
 	node = return_cheapest(*b);
 	execute_optimal_rotations(a, b, node);

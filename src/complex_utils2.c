@@ -62,8 +62,8 @@ void	find_optimal_target(t_stack_node *a, t_stack_node *b)
 
 void	mark_cheapest_move(t_stack_node *b)
 {
-	long			min_cost;
-	t_stack_node	*cheapest;
+	long min_cost;
+	t_stack_node *cheapest;
 
 	if (b == NULL)
 		return ;

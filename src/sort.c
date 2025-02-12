@@ -1,5 +1,18 @@
 #include "../include/push_swap.h"
 
+void	sort_stack(t_stack_node **a, t_stack_node **b, int size)
+{
+	if (!stack_sorted(*a))
+	{
+		if (size == 2)
+			sa(a);
+		else if (size == 3)
+			tiny_sort(a);
+		else
+			sort_large_stack(a, b);
+	}
+}
+
 void	tiny_sort(t_stack_node **a)
 {
 	t_stack_node	*highest_node;
@@ -25,8 +38,8 @@ void	handle_five(t_stack_node **a, t_stack_node **b)
 
 void	sort_large_stack(t_stack_node **a, t_stack_node **b)
 {
-	t_stack_node	*smallest;
-	int				len;
+	t_stack_node *smallest;
+	int len;
 
 	len = stack_size(*a);
 	while (len-- > 3)

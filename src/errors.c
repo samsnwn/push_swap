@@ -4,7 +4,7 @@ void	error_free(t_stack_node **a, char **argv, int flag_argc_2)
 {
 	free_stack(a);
 	if (flag_argc_2)
-		free_matrix(argv);
+		free_args(argv);
 	write(2, "Error\n", 6);
 	exit(1);
 }
@@ -38,12 +38,12 @@ int	error_repetition(t_stack_node *a, int nbr)
 	return (0);
 }
 
-void handle_input_error(int *numbers, char **argv, int is_split)
+void	handle_input_error(int *numbers, char **argv, int is_split)
 {
 	if (numbers)
 		free(numbers);
 	if (is_split)
-		free_matrix(argv);
+		free_args(argv);
 	write(2, "Error\n", 6);
 	exit(1);
 }

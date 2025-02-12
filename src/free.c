@@ -1,12 +1,12 @@
 #include "../include/push_swap.h"
 
-void	free_matrix(char **argv)
+void	free_args(char **argv)
 {
 	int	i;
 
 	i = 0;
 	if (argv == NULL || *argv == NULL)
-		return;
+		return ;
 	while (argv[i])
 	{
 		free(argv[i]);
@@ -17,8 +17,8 @@ void	free_matrix(char **argv)
 
 void	free_stack(t_stack_node **stack)
 {
-	t_stack_node	*tmp;
-	t_stack_node	*current;
+	t_stack_node *tmp;
+	t_stack_node *current;
 
 	if (stack == NULL)
 		return ;

@@ -17,8 +17,8 @@ void	move_nodes(t_stack_node **a, t_stack_node **b)
 
 void	push_swap(t_stack_node **a, t_stack_node **b)
 {
-	t_stack_node	*smallest;
-	int				len_a;
+	t_stack_node *smallest;
+	int len_a;
 
 	len_a = stack_size(*a);
 	if (len_a == 5)

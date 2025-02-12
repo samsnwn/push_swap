@@ -1,5 +1,15 @@
 #include "../include/push_swap.h"
 
+int	count_numbers(char **argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[i])
+		i++;
+	return (i);
+}
+
 int	stack_sorted(t_stack_node *stack)
 {
 	if (stack == NULL)
@@ -15,7 +25,7 @@ int	stack_sorted(t_stack_node *stack)
 
 int	stack_size(t_stack_node *stack)
 {
-	int	count;
+	int count;
 
 	if (stack == NULL)
 		return (0);

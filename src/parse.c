@@ -1,20 +1,49 @@
 #include "../include/push_swap.h"
 
-int count_numbers(char **argv)
+int	*parse_args(int argc, char **argv, int *size, int *is_split)
 {
-	int i;
-	
-	i = 0;
-	while (argv[i])
-		i++;
-	return (i);
+	int	*numbers;
+	int	error;
+
+	error = 0;
+	*is_split = 0;
+	if (argc == 2)
+	{
+		*is_split = 1;
+		numbers = handle_single_arg(argv, size, &error);
+	}
+	else
+		numbers = handle_multiple_args(argv, size, &error);
+	if (error || !numbers || check_duplicates(numbers, *size))
+		handle_input_error(numbers, argv, *is_split);
+	return (numbers);
 }
 
-int *convert_to_int_array(char **argv, int size, int *error)
+int	*handle_single_arg(char **argv, int *size, int *error)
 {
-	int *numbers;
-	int i;
-	long num;
+	int		*numbers;
+	char	**split_args;
+
+	split_args = ft_split(argv[1], ' ');
+	if (!split_args)
+		return (NULL);
+	*size = count_numbers(split_args);
+	numbers = convert_to_int_array(split_args, *size, error);
+	free_args(split_args);
+	return (numbers);
+}
+
+int	*handle_multiple_args(char **argv, int *size, int *error)
+{
+	*size = count_numbers(argv + 1);
+	return (convert_to_int_array(argv + 1, *size, error));
+}
+
+int	*convert_to_int_array(char **argv, int size, int *error)
+{
+	int		*numbers;
+	int		i;
+	long	num;
 
 	numbers = malloc(sizeof(int) * size);
 	if (!numbers)
@@ -41,7 +70,7 @@ int *convert_to_int_array(char **argv, int size, int *error)
 	return (numbers);
 }
 
-int check_duplicates(int *numbers, int size)
+int	check_duplicates(int *numbers, int size)
 {
 	int i;
 	int j;
@@ -59,19 +88,4 @@ int check_duplicates(int *numbers, int size)
 		i++;
 	}
 	return (0);
-}
-
-t_stack_node *create_stack_from_array(int *numbers, int size)
-{
-	t_stack_node *stack;
-	int i;
-
-	stack = NULL;
-	i = 0;
-	while (i < size)
-	{
-		append_node(&stack, numbers[i]);
-		i++;
-	}
-	return (stack);
 }

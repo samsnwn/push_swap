@@ -70,8 +70,8 @@ void	set_price(t_stack_node *a, t_stack_node *b)
 
 void	set_cheapest(t_stack_node *b)
 {
-	long			best_match_value;
-	t_stack_node	*best_match_node;
+	long best_match_value;
+	t_stack_node *best_match_node;
 
 	if (b == NULL)
 		return ;
