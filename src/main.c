@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: samcasti <samcasti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/13 14:01:41 by samcasti          #+#    #+#             */
+/*   Updated: 2025/02/13 14:14:45 by samcasti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 int	main(int argc, char **argv)
 {
-	t_stack_node *a;
-	t_stack_node *b;
-	int *numbers;
-	int size;
-	int is_split;
+	t_stack_node		*a;
+	t_stack_node		*b;
+	int					*numbers;
+	int					size;
+	int					is_split;
 
 	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
 		return (0);

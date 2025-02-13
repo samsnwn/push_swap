@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: samcasti <samcasti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/13 13:58:51 by samcasti          #+#    #+#             */
+/*   Updated: 2025/02/13 14:13:47 by samcasti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 int	count_numbers(char **argv)
@@ -25,7 +37,7 @@ int	stack_sorted(t_stack_node *stack)
 
 int	stack_size(t_stack_node *stack)
 {
-	int count;
+	int	count;
 
 	if (stack == NULL)
 		return (0);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   complex_utils.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: samcasti <samcasti@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/13 13:59:36 by samcasti          #+#    #+#             */
+/*   Updated: 2025/02/13 13:59:43 by samcasti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 void	finish_rotation(t_stack_node **stack, t_stack_node *top_node,
@@ -83,7 +95,7 @@ void	complete_rotation(t_stack_node **stack, t_stack_node *top,
 
 void	execute_move(t_stack_node **a, t_stack_node **b)
 {
-	t_stack_node *node;
+	t_stack_node	*node;
 
 	node = return_cheapest(*b);
 	execute_optimal_rotations(a, b, node);

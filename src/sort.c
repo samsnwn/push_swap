@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: samcasti <samcasti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/13 14:06:49 by samcasti          #+#    #+#             */
+/*   Updated: 2025/02/13 14:15:58 by samcasti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 void	sort_stack(t_stack_node **a, t_stack_node **b, int size)
@@ -38,8 +50,8 @@ void	handle_five(t_stack_node **a, t_stack_node **b)
 
 void	sort_large_stack(t_stack_node **a, t_stack_node **b)
 {
-	t_stack_node *smallest;
-	int len;
+	t_stack_node		*smallest;
+	int					len;
 
 	len = stack_size(*a);
 	while (len-- > 3)

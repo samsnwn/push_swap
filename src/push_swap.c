@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: samcasti <samcasti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/13 14:04:18 by samcasti          #+#    #+#             */
+/*   Updated: 2025/02/13 14:14:59 by samcasti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 void	move_nodes(t_stack_node **a, t_stack_node **b)
@@ -17,8 +29,8 @@ void	move_nodes(t_stack_node **a, t_stack_node **b)
 
 void	push_swap(t_stack_node **a, t_stack_node **b)
 {
-	t_stack_node *smallest;
-	int len_a;
+	t_stack_node	*smallest;
+	int				len_a;
 
 	len_a = stack_size(*a);
 	if (len_a == 5)

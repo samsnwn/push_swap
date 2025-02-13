@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   set.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: samcasti <samcasti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/13 14:06:20 by samcasti          #+#    #+#             */
+/*   Updated: 2025/02/13 14:12:24 by samcasti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 void	set_current_position(t_stack_node *stack)
@@ -70,8 +82,8 @@ void	set_price(t_stack_node *a, t_stack_node *b)
 
 void	set_cheapest(t_stack_node *b)
 {
-	long best_match_value;
-	t_stack_node *best_match_node;
+	long			best_match_value;
+	t_stack_node	*best_match_node;
 
 	if (b == NULL)
 		return ;

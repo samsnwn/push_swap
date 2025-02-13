@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: samcasti <samcasti@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/13 14:05:45 by samcasti          #+#    #+#             */
+/*   Updated: 2025/02/13 14:05:48 by samcasti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 void	free_args(char **argv)
@@ -17,8 +29,8 @@ void	free_args(char **argv)
 
 void	free_stack(t_stack_node **stack)
 {
-	t_stack_node *tmp;
-	t_stack_node *current;
+	t_stack_node	*tmp;
+	t_stack_node	*current;
 
 	if (stack == NULL)
 		return ;

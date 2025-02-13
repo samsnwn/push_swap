@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   complex_utils2.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: samcasti <samcasti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/13 14:00:30 by samcasti          #+#    #+#             */
+/*   Updated: 2025/02/13 14:14:03 by samcasti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 t_stack_node	*return_cheapest(t_stack_node *stack)
@@ -62,8 +74,8 @@ void	find_optimal_target(t_stack_node *a, t_stack_node *b)
 
 void	mark_cheapest_move(t_stack_node *b)
 {
-	long min_cost;
-	t_stack_node *cheapest;
+	long			min_cost;
+	t_stack_node	*cheapest;
 
 	if (b == NULL)
 		return ;
