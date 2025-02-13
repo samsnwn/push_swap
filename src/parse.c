@@ -14,7 +14,7 @@ static int	*handle_split_args(char **split_args, int *size, int *error)
 			free(numbers);
 		free_args(split_args);
 		write(2, "Error\n", 6);
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 	free_args(split_args);
 	return (numbers);
@@ -31,7 +31,7 @@ static int	*handle_direct_args(char **argv, int *size, int *error)
 		if (numbers)
 			free(numbers);
 		write(2, "Error\n", 6);
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 	return (numbers);
 }
@@ -95,10 +95,10 @@ int	check_duplicates(int *numbers, int size)
 		while (j < size)
 		{
 			if (numbers[i] == numbers[j])
-				return (1);
+				return (TRUE);
 			j++;
 		}
 		i++;
 	}
-	return (0);
+	return (FALSE);
 }
