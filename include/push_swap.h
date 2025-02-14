@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samcasti <samcasti@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: samcasti <samcasti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 14:16:52 by samcasti          #+#    #+#             */
-/*   Updated: 2025/02/13 14:16:55 by samcasti         ###   ########.fr       */
+/*   Updated: 2025/02/14 15:47:46 by samcasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,14 @@ int						*convert_to_int_array(char **argv, int size,
 							int *error);
 int						check_duplicates(int *numbers, int size);
 t_stack_node			*create_stack_from_array(int *numbers, int size);
+int						count_numbers(char **argv);
 
 //*** Handle errors-free ***
 void					free_args(char **argv);
 void					error_free(t_stack_node **a, char **argv,
 							int flag_argc_2);
 void					free_stack(t_stack_node **stack);
+void					number_free(int *numbers, int *error);
 int						error_repetition(t_stack_node *a, int nbr);
 int						error_syntax(char *str_nbr);
 void					handle_input_error(int *numbers, char **argv,
@@ -92,8 +94,6 @@ int						stack_size(t_stack_node *stack);
 void					finish_rotation(t_stack_node **s, t_stack_node *n,
 							char c);
 
-int						count_numbers(char **argv);
-
 //*** Algorithms ***
 void					sort_stack(t_stack_node **a, t_stack_node **b,
 							int size);
@@ -113,7 +113,6 @@ void					rrb(t_stack_node **b);
 void					rrr(t_stack_node **a, t_stack_node **b);
 void					pa(t_stack_node **a, t_stack_node **b);
 void					pb(t_stack_node **b, t_stack_node **a);
-
 void					reverse_rotate(t_stack_node **stack);
 void					reverse_rotate_both(t_stack_node **a, t_stack_node **b,
 							t_stack_node *cheapest_node);

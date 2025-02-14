@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samcasti <samcasti@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: samcasti <samcasti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 14:03:04 by samcasti          #+#    #+#             */
-/*   Updated: 2025/02/13 14:03:08 by samcasti         ###   ########.fr       */
+/*   Updated: 2025/02/14 14:52:24 by samcasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,24 +73,21 @@ int	*convert_to_int_array(char **argv, int size, int *error)
 	numbers = malloc(sizeof(int) * size);
 	if (!numbers)
 		return (NULL);
-	i = 0;
-	while (i < size)
+	i = -1;
+	while (++i < size)
 	{
 		if (error_syntax(argv[i]))
 		{
-			free(numbers);
-			*error = 1;
+			number_free(numbers, error);
 			return (NULL);
 		}
 		num = ft_atol(argv[i]);
 		if (num > INT_MAX || num < INT_MIN)
 		{
-			free(numbers);
-			*error = 1;
+			number_free(numbers, error);
 			return (NULL);
 		}
 		numbers[i] = (int)num;
-		i++;
 	}
 	return (numbers);
 }
