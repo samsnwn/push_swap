@@ -6,7 +6,7 @@
 /*   By: samcasti <samcasti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 14:16:52 by samcasti          #+#    #+#             */
-/*   Updated: 2025/02/14 15:47:46 by samcasti         ###   ########.fr       */
+/*   Updated: 2025/02/14 18:15:06 by samcasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,8 @@ int						*parse_args(int argc, char **argv, int *size,
 							int *is_split);
 int						*convert_to_int_array(char **argv, int size,
 							int *error);
-int						check_duplicates(int *numbers, int size);
 t_stack_node			*create_stack_from_array(int *numbers, int size);
-int						count_numbers(char **argv);
+int						check_duplicates(int *numbers, int size);
 
 //*** Handle errors-free ***
 void					free_args(char **argv);
@@ -64,6 +63,7 @@ void					execute_move(t_stack_node **a, t_stack_node **b);
 void					calculate_move_costs(t_stack_node *a, t_stack_node *b);
 void					find_optimal_target(t_stack_node *a, t_stack_node *b);
 void					mark_cheapest_move(t_stack_node *b);
+t_stack_node			*return_cheapest(t_stack_node *stack);
 
 // node utils
 t_stack_node			*find_highest(t_stack_node *stack);
@@ -72,36 +72,18 @@ void					append_node(t_stack_node **stack, int nbr);
 t_stack_node			*find_smallest(t_stack_node *stack);
 void					prepare_nodes(t_stack_node *a, t_stack_node *b);
 
-// push_swap
-void					move_nodes(t_stack_node **a, t_stack_node **b);
-void					push_swap(t_stack_node **a, t_stack_node **b);
-
-// set
-void					set_current_position(t_stack_node *stack);
-void					set_target_node(t_stack_node *a, t_stack_node *b);
-void					set_price(t_stack_node *a, t_stack_node *b);
-void					set_cheapest(t_stack_node *b);
-
-//*** Stack creation ***
-void					stack_init(t_stack_node **a, char **argv,
-							int flag_argc_2);
-void					init_nodes(t_stack_node *a, t_stack_node *b);
-
 //*** linked list utils ***
-t_stack_node			*return_cheapest(t_stack_node *stack);
 int						stack_sorted(t_stack_node *stack);
 int						stack_size(t_stack_node *stack);
-void					finish_rotation(t_stack_node **s, t_stack_node *n,
-							char c);
+int						count_numbers(char **argv);
 
 //*** Algorithms ***
 void					sort_stack(t_stack_node **a, t_stack_node **b,
 							int size);
 void					tiny_sort(t_stack_node **a);
-void					handle_five(t_stack_node **a, t_stack_node **b);
 void					sort_large_stack(t_stack_node **a, t_stack_node **b);
 
-//*** Commands ***
+//*** Operations ***
 void					sa(t_stack_node **a);
 void					sb(t_stack_node **b);
 void					ss(t_stack_node **a, t_stack_node **b);
@@ -114,9 +96,5 @@ void					rrr(t_stack_node **a, t_stack_node **b);
 void					pa(t_stack_node **a, t_stack_node **b);
 void					pb(t_stack_node **b, t_stack_node **a);
 void					reverse_rotate(t_stack_node **stack);
-void					reverse_rotate_both(t_stack_node **a, t_stack_node **b,
-							t_stack_node *cheapest_node);
-void					rotate_both(t_stack_node **a, t_stack_node **b,
-							t_stack_node *cheapest_node);
 
 #endif

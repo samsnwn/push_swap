@@ -11,8 +11,11 @@ LIBFT = libft/libft.a
 
 HEAD = push_swap.h
 SRCS = $(SRCS_DIR)/main.c \
+       $(SRCS_DIR)/parse.c \
+       $(SRCS_DIR)/sort.c \
+       $(SRCS_DIR)/free.c \
        $(SRCS_DIR)/errors.c \
-       $(SRCS_DIR)/push_swap.c \
+       $(SRCS_DIR)/utils.c \
        $(SRCS_DIR)/complex_utils.c \
        $(SRCS_DIR)/complex_utils2.c \
        $(SRCS_DIR)/node_utils.c \
@@ -20,12 +23,6 @@ SRCS = $(SRCS_DIR)/main.c \
        $(SRCS_DIR)/push.c \
        $(SRCS_DIR)/rotate.c \
        $(SRCS_DIR)/reverse_rotate.c \
-       $(SRCS_DIR)/free.c \
-       $(SRCS_DIR)/parse.c \
-       $(SRCS_DIR)/set.c \
-       $(SRCS_DIR)/sort.c \
-       $(SRCS_DIR)/stack_init.c \
-       $(SRCS_DIR)/utils.c \
 
 OBJS = $(SRCS:$(SRCS_DIR)/%.c=$(OBJS_DIR)/%.o)
 

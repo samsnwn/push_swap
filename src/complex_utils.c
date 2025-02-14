@@ -3,36 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   complex_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samcasti <samcasti@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: samcasti <samcasti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 13:59:36 by samcasti          #+#    #+#             */
-/*   Updated: 2025/02/13 13:59:43 by samcasti         ###   ########.fr       */
+/*   Created: 2025/02/13 14:00:30 by samcasti          #+#    #+#             */
+/*   Updated: 2025/02/14 18:14:52 by samcasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-void	finish_rotation(t_stack_node **stack, t_stack_node *top_node,
-		char stack_name)
-{
-	while (*stack != top_node)
-	{
-		if (stack_name == 'a')
-		{
-			if (top_node->upper_half)
-				ra(stack);
-			else
-				rra(stack);
-		}
-		else if (stack_name == 'b')
-		{
-			if (top_node->upper_half)
-				rb(stack);
-			else
-				rrb(stack);
-		}
-	}
-}
 
 void	update_positions(t_stack_node *stack)
 {
@@ -55,51 +33,69 @@ void	update_positions(t_stack_node *stack)
 	}
 }
 
-void	execute_optimal_rotations(t_stack_node **a, t_stack_node **b,
-		t_stack_node *node)
+void	find_optimal_target(t_stack_node *a, t_stack_node *b)
 {
-	while (*a != node->target && *b != node)
-	{
-		if (node->upper_half && node->target->upper_half)
-			rr(a, b);
-		else if (!node->upper_half && !node->target->upper_half)
-			rrr(a, b);
-		else
-			break ;
-	}
-	update_positions(*a);
-	update_positions(*b);
-}
+	t_stack_node	*current;
+	t_stack_node	*target;
+	long			best_match;
 
-void	complete_rotation(t_stack_node **stack, t_stack_node *top,
-		char stack_id)
-{
-	while (*stack != top)
+	while (b)
 	{
-		if (stack_id == 'a')
+		best_match = LONG_MAX;
+		current = a;
+		while (current)
 		{
-			if (top->upper_half)
-				ra(stack);
-			else
-				rra(stack);
+			if (current->num > b->num && current->num < best_match)
+			{
+				best_match = current->num;
+				target = current;
+			}
+			current = current->next;
 		}
+		if (best_match == LONG_MAX)
+			b->target = find_smallest(a);
 		else
-		{
-			if (top->upper_half)
-				rb(stack);
-			else
-				rrb(stack);
-		}
+			b->target = target;
+		b = b->next;
 	}
 }
 
-void	execute_move(t_stack_node **a, t_stack_node **b)
+void	calculate_move_costs(t_stack_node *a, t_stack_node *b)
 {
-	t_stack_node	*node;
+	int	len_a;
+	int	len_b;
 
-	node = return_cheapest(*b);
-	execute_optimal_rotations(a, b, node);
-	complete_rotation(b, node, 'b');
-	complete_rotation(a, node->target, 'a');
-	pa(a, b);
+	len_a = stack_size(a);
+	len_b = stack_size(b);
+	while (b)
+	{
+		b->cost = b->pos;
+		if (!b->upper_half)
+			b->cost = len_b - b->pos;
+		if (b->target->upper_half)
+			b->cost += b->target->pos;
+		else
+			b->cost += len_a - b->target->pos;
+		b = b->next;
+	}
+}
+
+void	mark_cheapest_move(t_stack_node *b)
+{
+	long			min_cost;
+	t_stack_node	*cheapest;
+
+	if (b == NULL)
+		return ;
+	min_cost = LONG_MAX;
+	while (b)
+	{
+		if (b->cost < min_cost)
+		{
+			min_cost = b->cost;
+			cheapest = b;
+		}
+		b = b->next;
+	}
+	cheapest->is_optimal = TRUE;
 }

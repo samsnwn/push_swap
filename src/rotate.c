@@ -3,23 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samcasti <samcasti@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: samcasti <samcasti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 14:04:53 by samcasti          #+#    #+#             */
-/*   Updated: 2025/02/13 14:05:07 by samcasti         ###   ########.fr       */
+/*   Updated: 2025/02/14 17:59:28 by samcasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-void	rotate_both(t_stack_node **a, t_stack_node **b,
-		t_stack_node *cheapest_node)
-{
-	while (*a != cheapest_node->target && *b != cheapest_node)
-		rr(a, b);
-	set_current_position(*a);
-	set_current_position(*b);
-}
 
 static void	rotate(t_stack_node **stack)
 {

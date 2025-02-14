@@ -6,11 +6,26 @@
 /*   By: samcasti <samcasti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 14:01:41 by samcasti          #+#    #+#             */
-/*   Updated: 2025/02/13 14:14:45 by samcasti         ###   ########.fr       */
+/*   Updated: 2025/02/14 18:06:55 by samcasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+t_stack_node	*create_stack_from_array(int *numbers, int size)
+{
+	t_stack_node	*stack;
+	int				i;
+
+	stack = NULL;
+	i = 0;
+	while (i < size)
+	{
+		append_node(&stack, numbers[i]);
+		i++;
+	}
+	return (stack);
+}
 
 int	main(int argc, char **argv)
 {

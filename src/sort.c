@@ -6,7 +6,7 @@
 /*   By: samcasti <samcasti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 14:06:49 by samcasti          #+#    #+#             */
-/*   Updated: 2025/02/13 14:15:58 by samcasti         ###   ########.fr       */
+/*   Updated: 2025/02/14 17:47:47 by samcasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,6 @@ void	tiny_sort(t_stack_node **a)
 		rra(a);
 	if ((*a)->num > (*a)->next->num)
 		sa(a);
-}
-
-void	handle_five(t_stack_node **a, t_stack_node **b)
-{
-	while (stack_size(*a) > 3)
-	{
-		init_nodes(*a, *b);
-		finish_rotation(a, find_smallest(*a), 'a');
-		pb(b, a);
-	}
 }
 
 void	sort_large_stack(t_stack_node **a, t_stack_node **b)
