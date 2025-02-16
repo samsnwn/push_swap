@@ -40,24 +40,22 @@ void	tiny_sort(t_stack_node **a)
 
 void	sort_large_stack(t_stack_node **a, t_stack_node **b)
 {
-	t_stack_node		*smallest;
-	int					len;
-
-	len = stack_size(*a);
-	while (len-- > 3)
-		pb(b, a);
+	int		stack_len;
+	t_stack_node	*best_move;
+	
+	stack_len = stack_size(*a);
+	push_to_b(a, b, stack_len);
 	tiny_sort(a);
+	
 	while (*b)
 	{
-		prepare_nodes(*a, *b);
-		execute_move(a, b);
+		update_positions(*a);
+		update_positions(*b);
+		set_target_nodes(*a, *b);
+		calculate_costs(*a, *b);
+		best_move = find_best_move(*b);
+		do_rotations(a, b, best_move);
+		pa(a, b);
 	}
-	update_positions(*a);
-	smallest = find_smallest(*a);
-	if (smallest->upper_half)
-		while (*a != smallest)
-			ra(a);
-	else
-		while (*a != smallest)
-			rra(a);
+	rotate_to_min(a);
 }

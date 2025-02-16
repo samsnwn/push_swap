@@ -12,6 +12,12 @@
 
 #include "../include/push_swap.h"
 
+void	push_to_b(t_stack_node **src, t_stack_node **dst, int count)
+{
+	while (count-- > 3)
+		pb(dst, src);
+}
+
 void	update_positions(t_stack_node *stack)
 {
 	int	i;
@@ -33,26 +39,26 @@ void	update_positions(t_stack_node *stack)
 	}
 }
 
-void	find_optimal_target(t_stack_node *a, t_stack_node *b)
+void	set_target_nodes(t_stack_node *a, t_stack_node *b)
 {
 	t_stack_node	*current;
 	t_stack_node	*target;
-	long			best_match;
+	long			best_val;
 
 	while (b)
 	{
-		best_match = LONG_MAX;
+		best_val = LONG_MAX;
 		current = a;
 		while (current)
 		{
-			if (current->num > b->num && current->num < best_match)
+			if (current->num > b->num && current->num < best_val)
 			{
-				best_match = current->num;
+				best_val = current->num;
 				target = current;
 			}
 			current = current->next;
 		}
-		if (best_match == LONG_MAX)
+		if (best_val == LONG_MAX)
 			b->target = find_smallest(a);
 		else
 			b->target = target;
@@ -60,42 +66,30 @@ void	find_optimal_target(t_stack_node *a, t_stack_node *b)
 	}
 }
 
-void	calculate_move_costs(t_stack_node *a, t_stack_node *b)
+void	calculate_costs(t_stack_node *a, t_stack_node *b)
 {
 	int	len_a;
 	int	len_b;
-
+	
 	len_a = stack_size(a);
 	len_b = stack_size(b);
 	while (b)
 	{
-		b->cost = b->pos;
-		if (!b->upper_half)
-			b->cost = len_b - b->pos;
-		if (b->target->upper_half)
-			b->cost += b->target->pos;
-		else
-			b->cost += len_a - b->target->pos;
+		b->cost = get_target_cost(b, len_a, len_b);
 		b = b->next;
 	}
 }
 
-void	mark_cheapest_move(t_stack_node *b)
+int	get_target_cost(t_stack_node *node, int len_a, int len_b)
 {
-	long			min_cost;
-	t_stack_node	*cheapest;
-
-	if (b == NULL)
-		return ;
-	min_cost = LONG_MAX;
-	while (b)
-	{
-		if (b->cost < min_cost)
-		{
-			min_cost = b->cost;
-			cheapest = b;
-		}
-		b = b->next;
-	}
-	cheapest->is_optimal = TRUE;
+	int	total_cost;
+	
+	total_cost = node->pos;
+	if (!node->upper_half)
+		total_cost = len_b - node->pos;
+	if (node->target->upper_half)
+		total_cost += node->target->pos;
+	else
+		total_cost += len_a - node->target->pos;
+	return (total_cost);
 }

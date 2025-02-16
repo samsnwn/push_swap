@@ -85,12 +85,3 @@ t_stack_node	*find_smallest(t_stack_node *stack)
 	}
 	return (smallest_node);
 }
-
-void	prepare_nodes(t_stack_node *a, t_stack_node *b)
-{
-	update_positions(a);
-	update_positions(b);
-	find_optimal_target(a, b);
-	calculate_move_costs(a, b);
-	mark_cheapest_move(b);
-}

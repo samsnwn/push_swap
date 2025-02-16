@@ -54,23 +54,20 @@ void					handle_input_error(int *numbers, char **argv,
 							int is_split);
 
 // complex utils
-void					update_positions(t_stack_node *stack);
-void					execute_optimal_rotations(t_stack_node **a,
-							t_stack_node **b, t_stack_node *node);
-void					complete_rotation(t_stack_node **stack,
-							t_stack_node *top, char stack_id);
-void					execute_move(t_stack_node **a, t_stack_node **b);
-void					calculate_move_costs(t_stack_node *a, t_stack_node *b);
-void					find_optimal_target(t_stack_node *a, t_stack_node *b);
-void					mark_cheapest_move(t_stack_node *b);
-t_stack_node			*return_cheapest(t_stack_node *stack);
+void	push_to_b(t_stack_node **src, t_stack_node **dst, int count);
+void	update_positions(t_stack_node *stack);
+void	set_target_nodes(t_stack_node *a, t_stack_node *b);
+void	calculate_costs(t_stack_node *a, t_stack_node *b);
+t_stack_node	*find_best_move(t_stack_node *b);
+int	get_target_cost(t_stack_node *node, int len_a, int len_b);
+void	do_rotations(t_stack_node **a, t_stack_node **b, t_stack_node *node);
+void	rotate_to_min(t_stack_node **stack);
 
 // node utils
 t_stack_node			*find_highest(t_stack_node *stack);
 t_stack_node			*find_last_node(t_stack_node *head);
 void					append_node(t_stack_node **stack, int nbr);
 t_stack_node			*find_smallest(t_stack_node *stack);
-void					prepare_nodes(t_stack_node *a, t_stack_node *b);
 
 //*** linked list utils ***
 int						stack_sorted(t_stack_node *stack);

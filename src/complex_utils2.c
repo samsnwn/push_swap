@@ -12,64 +12,65 @@
 
 #include "../include/push_swap.h"
 
-t_stack_node	*return_cheapest(t_stack_node *stack)
+t_stack_node	*find_best_move(t_stack_node *b)
 {
-	if (stack == NULL)
-		return (NULL);
-	while (stack)
+	t_stack_node	*best_node;
+	int				min_cost;
+	
+	min_cost = INT_MAX;
+	best_node = NULL;
+	while (b)
 	{
-		if (stack->is_optimal)
-			return (stack);
-		stack = stack->next;
+		if (b->cost < min_cost)
+		{
+			min_cost = b->cost;
+			best_node = b;
+		}
+		b = b->next;
 	}
-	return (NULL);
+	return (best_node);
 }
 
-void	execute_optimal_rotations(t_stack_node **a, t_stack_node **b,
-		t_stack_node *node)
+void	do_rotations(t_stack_node **a, t_stack_node **b, t_stack_node *node)
 {
-	while (*a != node->target && *b != node)
+	while (*b != node && *a != node->target)
 	{
 		if (node->upper_half && node->target->upper_half)
 			rr(a, b);
 		else if (!node->upper_half && !node->target->upper_half)
 			rrr(a, b);
 		else
-			break ;
+			break;
 	}
-	update_positions(*a);
-	update_positions(*b);
-}
-
-void	complete_rotation(t_stack_node **stack, t_stack_node *top,
-		char stack_id)
-{
-	while (*stack != top)
+	while (*b != node)
 	{
-		if (stack_id == 'a')
-		{
-			if (top->upper_half)
-				ra(stack);
-			else
-				rra(stack);
-		}
+		if (node->upper_half)
+			rb(b);
 		else
-		{
-			if (top->upper_half)
-				rb(stack);
-			else
-				rrb(stack);
-		}
+			rrb(b);
+	}
+	while (*a != node->target)
+	{
+		if (node->target->upper_half)
+			ra(a);
+		else
+			rra(a);
 	}
 }
 
-void	execute_move(t_stack_node **a, t_stack_node **b)
+void	rotate_to_min(t_stack_node **stack)
 {
-	t_stack_node	*node;
-
-	node = return_cheapest(*b);
-	execute_optimal_rotations(a, b, node);
-	complete_rotation(b, node, 'b');
-	complete_rotation(a, node->target, 'a');
-	pa(a, b);
+	t_stack_node	*min;
+	
+	min = find_smallest(*stack);
+	if (min->upper_half)
+	{
+		while (*stack != min)
+			ra(stack);
+	}
+	else
+	{
+		while (*stack != min)
+			rra(stack);
+	}
 }
