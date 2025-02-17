@@ -25,10 +25,8 @@ typedef struct s_stack_node
 {
 	int					num;
 	int					pos;
-	int					idx;
 	int					cost;
 	int					upper_half;
-	int					is_optimal;
 	struct s_stack_node	*target;
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
