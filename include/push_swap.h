@@ -45,10 +45,8 @@ void					free_args(char **argv);
 void					free_stack(t_stack_node **stack);
 void					number_free(int *numbers, int *error);
 int						error_syntax(char *str_nbr);
-void					handle_input_error(int *numbers, char **argv,
-							int is_split);
 
-// complex utils
+// complex sort
 void					push_to_b(t_stack_node **src, t_stack_node **dst,
 							int count);
 void					update_positions(t_stack_node *stack);
@@ -90,6 +88,5 @@ void					rrb(t_stack_node **b);
 void					rrr(t_stack_node **a, t_stack_node **b);
 void					pa(t_stack_node **a, t_stack_node **b);
 void					pb(t_stack_node **b, t_stack_node **a);
-void					reverse_rotate(t_stack_node **stack);
 
 #endif
