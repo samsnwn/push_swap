@@ -77,7 +77,7 @@ int						count_numbers(char **argv);
 //*** Algorithms ***
 void					sort_stack(t_stack_node **a, t_stack_node **b,
 							int size);
-void					tiny_sort(t_stack_node **a);
+void					sort_three(t_stack_node **a);
 void					sort_large_stack(t_stack_node **a, t_stack_node **b);
 
 //*** Operations ***

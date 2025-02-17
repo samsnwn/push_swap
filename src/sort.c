@@ -19,13 +19,13 @@ void	sort_stack(t_stack_node **a, t_stack_node **b, int size)
 		if (size == 2)
 			sa(a);
 		else if (size == 3)
-			tiny_sort(a);
+			sort_three(a);
 		else
 			sort_large_stack(a, b);
 	}
 }
 
-void	tiny_sort(t_stack_node **a)
+void	sort_three(t_stack_node **a)
 {
 	t_stack_node	*highest_node;
 
@@ -45,7 +45,7 @@ void	sort_large_stack(t_stack_node **a, t_stack_node **b)
 	
 	stack_len = stack_size(*a);
 	push_to_b(a, b, stack_len);
-	tiny_sort(a);
+	sort_three(a);
 	
 	while (*b)
 	{
