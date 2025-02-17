@@ -16,8 +16,8 @@ SRCS = $(SRCS_DIR)/main.c \
        $(SRCS_DIR)/free.c \
        $(SRCS_DIR)/errors.c \
        $(SRCS_DIR)/utils.c \
-       $(SRCS_DIR)/complex_utils.c \
-       $(SRCS_DIR)/complex_utils2.c \
+       $(SRCS_DIR)/complex_sort.c \
+       $(SRCS_DIR)/complex_sort2.c \
        $(SRCS_DIR)/node_utils.c \
        $(SRCS_DIR)/swap.c \
        $(SRCS_DIR)/push.c \
