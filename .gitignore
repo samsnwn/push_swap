@@ -3,3 +3,5 @@ tester/
 src/test.c
 
 checker_Mac
+
+checker_linux

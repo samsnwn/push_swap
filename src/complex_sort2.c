@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   complex_utils2.c                                   :+:      :+:    :+:   */
+/*   complex_sort2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samcasti <samcasti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:59:36 by samcasti          #+#    #+#             */
-/*   Updated: 2025/02/14 17:58:48 by samcasti         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:37:07 by samcasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	do_rotations(t_stack_node **a, t_stack_node **b, t_stack_node *node)
 
 void	rotate_to_min(t_stack_node **stack)
 {
-	t_stack_node *min;
+	t_stack_node	*min;
 
 	min = find_smallest(*stack);
 	if (min->upper_half)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   complex_utils.c                                    :+:      :+:    :+:   */
+/*   complex_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samcasti <samcasti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 14:00:30 by samcasti          #+#    #+#             */
-/*   Updated: 2025/02/14 18:14:52 by samcasti         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:37:13 by samcasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	calculate_costs(t_stack_node *a, t_stack_node *b)
 
 int	get_target_cost(t_stack_node *node, int len_a, int len_b)
 {
-	int total_cost;
+	int	total_cost;
 
 	total_cost = node->pos;
 	if (!node->upper_half)
