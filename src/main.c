@@ -29,11 +29,11 @@ t_stack_node	*create_stack_from_array(int *numbers, int size)
 
 int	main(int argc, char **argv)
 {
-	t_stack_node		*a;
-	t_stack_node		*b;
-	int					*numbers;
-	int					size;
-	int					is_split;
+	t_stack_node	*a;
+	t_stack_node	*b;
+	int				*numbers;
+	int				size;
+	int				is_split;
 
 	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
 		return (0);

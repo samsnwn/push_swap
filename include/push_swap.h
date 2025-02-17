@@ -42,24 +42,24 @@ int						check_duplicates(int *numbers, int size);
 
 //*** Handle errors-free ***
 void					free_args(char **argv);
-void					error_free(t_stack_node **a, char **argv,
-							int flag_argc_2);
 void					free_stack(t_stack_node **stack);
 void					number_free(int *numbers, int *error);
-int						error_repetition(t_stack_node *a, int nbr);
 int						error_syntax(char *str_nbr);
 void					handle_input_error(int *numbers, char **argv,
 							int is_split);
 
 // complex utils
-void	push_to_b(t_stack_node **src, t_stack_node **dst, int count);
-void	update_positions(t_stack_node *stack);
-void	set_target_nodes(t_stack_node *a, t_stack_node *b);
-void	calculate_costs(t_stack_node *a, t_stack_node *b);
-t_stack_node	*find_best_move(t_stack_node *b);
-int	get_target_cost(t_stack_node *node, int len_a, int len_b);
-void	do_rotations(t_stack_node **a, t_stack_node **b, t_stack_node *node);
-void	rotate_to_min(t_stack_node **stack);
+void					push_to_b(t_stack_node **src, t_stack_node **dst,
+							int count);
+void					update_positions(t_stack_node *stack);
+void					set_target_nodes(t_stack_node *a, t_stack_node *b);
+void					calculate_costs(t_stack_node *a, t_stack_node *b);
+t_stack_node			*find_best_move(t_stack_node *b);
+int						get_target_cost(t_stack_node *node, int len_a,
+							int len_b);
+void					do_rotations(t_stack_node **a, t_stack_node **b,
+							t_stack_node *node);
+void					rotate_to_min(t_stack_node **stack);
 
 // node utils
 t_stack_node			*find_highest(t_stack_node *stack);

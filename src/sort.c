@@ -40,13 +40,12 @@ void	sort_three(t_stack_node **a)
 
 void	sort_large_stack(t_stack_node **a, t_stack_node **b)
 {
-	int		stack_len;
+	int				stack_len;
 	t_stack_node	*best_move;
-	
+
 	stack_len = stack_size(*a);
 	push_to_b(a, b, stack_len);
 	sort_three(a);
-	
 	while (*b)
 	{
 		update_positions(*a);

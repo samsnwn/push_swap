@@ -16,7 +16,7 @@ t_stack_node	*find_best_move(t_stack_node *b)
 {
 	t_stack_node	*best_node;
 	int				min_cost;
-	
+
 	min_cost = INT_MAX;
 	best_node = NULL;
 	while (b)
@@ -40,7 +40,7 @@ void	do_rotations(t_stack_node **a, t_stack_node **b, t_stack_node *node)
 		else if (!node->upper_half && !node->target->upper_half)
 			rrr(a, b);
 		else
-			break;
+			break ;
 	}
 	while (*b != node)
 	{
@@ -60,8 +60,8 @@ void	do_rotations(t_stack_node **a, t_stack_node **b, t_stack_node *node)
 
 void	rotate_to_min(t_stack_node **stack)
 {
-	t_stack_node	*min;
-	
+	t_stack_node *min;
+
 	min = find_smallest(*stack);
 	if (min->upper_half)
 	{

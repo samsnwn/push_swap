@@ -70,7 +70,7 @@ void	calculate_costs(t_stack_node *a, t_stack_node *b)
 {
 	int	len_a;
 	int	len_b;
-	
+
 	len_a = stack_size(a);
 	len_b = stack_size(b);
 	while (b)
@@ -82,8 +82,8 @@ void	calculate_costs(t_stack_node *a, t_stack_node *b)
 
 int	get_target_cost(t_stack_node *node, int len_a, int len_b)
 {
-	int	total_cost;
-	
+	int total_cost;
+
 	total_cost = node->pos;
 	if (!node->upper_half)
 		total_cost = len_b - node->pos;
